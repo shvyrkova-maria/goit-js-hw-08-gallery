@@ -112,8 +112,6 @@ body {
 
 .lightbox__button {
   position: absolute;
-  top: 8px;
-  right: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,7 +126,7 @@ body {
   cursor: pointer;
   transition: background-color var(--animation-duration) var(--timing-function);
   outline: none;
-  background-image: url("../images/icon-close.svg");
+
   background-position: center;
   background-size: 60%;
   background-repeat: no-repeat;
@@ -137,4 +135,22 @@ body {
 .lightbox__button:hover,
 .lightbox__button:focus {
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.lightbox__button-close {
+  top: 8px;
+  right: 8px;
+  background-image: url("../images/icon-close.svg");
+}
+
+.lightbox__button-prev {
+  top: 50%;
+  left: 35px;
+  background-image: url("../images/arrow-left.svg");
+}
+
+.lightbox__button-next {
+  top: 50%;
+  right: 35px;
+  background-image: url("../images/arrow-right.svg");
 }
