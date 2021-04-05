@@ -50,12 +50,16 @@ function onGalleryImageClick(event) {
   refs.lightbox.classList.add("is-open");
   refs.image.src = event.target.dataset.source;
   window.addEventListener("keydown", onEscapePress);
+  window.addEventListener("keydown", onArrowleftPress);
+  window.addEventListener("keydown", onArrowRightPress);
 }
 
 function onBtnCloseClick() {
   refs.lightbox.classList.remove("is-open");
   refs.image.src = "";
   window.removeEventListener("keydown", onEscapePress);
+  window.removeEventListener("keydown", onArrowleftPress);
+  window.removeEventListener("keydown", onArrowRightPress);
 }
 
 function onLightboxOverlayClick(event) {
@@ -102,5 +106,17 @@ function onBtnNextClick() {
     } else if (refs.image.src === lastGalleryImage.dataset.source) {
       return (refs.image.src = firstGalleryImage.dataset.source);
     }
+  }
+}
+
+function onArrowleftPress(event) {
+  if (event.code === "ArrowLeft") {
+    onBtnPrevClick();
+  }
+}
+
+function onArrowRightPress(event) {
+  if (event.code === "ArrowRight") {
+    onBtnNextClick();
   }
 }
