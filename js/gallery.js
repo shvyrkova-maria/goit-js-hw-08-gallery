@@ -70,12 +70,37 @@ function onEscapePress(event) {
   }
 }
 
-// function onBtnPrevClick() {
-//   const test = document.querySelector(".gallery__image");
-//   if ((refs.image.src = test.dataset.source)) {
-//     return (refs.image.src = test.dataset.source);
-//   }
-// }
-// function onBtnNextClick() {}
-//elem.previousSibling
-//elem.nextSibling
+function onBtnPrevClick() {
+  const galleryImages = document.querySelectorAll(".gallery__image");
+  for (let i = 0; i < galleryImages.length; i++) {
+    const galleryImage = galleryImages[i];
+    const firstGalleryImage = galleryImages[0];
+    const lastGalleryImage = galleryImages[galleryImages.length - 1];
+    const preGalleryImage = galleryImages[i - 1];
+
+    if (
+      refs.image.src === galleryImage.dataset.source &&
+      refs.image.src !== firstGalleryImage.dataset.source
+    ) {
+      return (refs.image.src = preGalleryImage.dataset.source);
+    } else if (refs.image.src === firstGalleryImage.dataset.source) {
+      return (refs.image.src = lastGalleryImage.dataset.source);
+    }
+  }
+}
+
+function onBtnNextClick() {
+  const galleryImages = document.querySelectorAll(".gallery__image");
+  for (let i = 0; i < galleryImages.length; i++) {
+    const galleryImage = galleryImages[i];
+    const firstGalleryImage = galleryImages[0];
+    const lastGalleryImage = galleryImages[galleryImages.length - 1];
+    const nextGalleryImage = galleryImages[i + 1];
+
+    if (refs.image.src === galleryImage.dataset.source) {
+      return (refs.image.src = nextGalleryImage.dataset.source);
+    } else if (refs.image.src === lastGalleryImage.dataset.source) {
+      return (refs.image.src = firstGalleryImage.dataset.source);
+    }
+  }
+}
